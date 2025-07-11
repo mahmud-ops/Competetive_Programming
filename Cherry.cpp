@@ -1,4 +1,4 @@
-#include <bits/stdc++.h
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -19,23 +19,24 @@ int main()
             a.push_back(value);
         }
 
-        int64_t mult = 1;
-        
-        for (int h = 0; h < 2; h++)
+        vector<int64_t> multPairs;
+
+        for (int i = 1; i < n; i++)
         {
-            int maxVal = INT_MIN;
-            for (int i = h; i < n; i++)
-            {
-                if (a[i] > maxVal)
-                {
-                    maxVal = a[i];
-                    a[i] = 0;
-                }
-            }
-            mult *= maxVal;
+            int64_t mult = 1LL * a[i] * a[i - 1];
+            multPairs.push_back(mult);
         }
 
-        cout << mult << endl;
+        int64_t multMax = LLONG_MIN;
+        for (int i = 0; i < multPairs.size(); i++)
+        {
+            if (multPairs[i] > multMax)
+            {
+                multMax = multPairs[i];
+            }
+        }
+
+        cout << multMax << endl;
     }
     return 0;
 }
