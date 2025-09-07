@@ -4,21 +4,17 @@ using namespace std;
 
 int main() {
 
-    ll n , k;
+    ll n , k , s;
     cin >> n >> k ;
 
-    vector<ll> v;
-
-    int i;
-    for(i = 1 ; i <= n ; i += 2){
-        v.push_back(i);
+    if(k <= (n + 1)/2){
+        s = 2*k - 1;
     }
-    for(i = 2; i <= n ; i += 2){
-        v.push_back(i);
+    else{
+        s = 2 * ( k - ((n + 1)/2));
     }
 
-    cout << v[k - 1] << endl;;
-
+    cout << s << endl;
 
     return 0;
 }
