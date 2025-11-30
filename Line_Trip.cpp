@@ -13,21 +13,17 @@ int main() {
         int n,x;
         cin >> n >> x;
 
-        vector<int> gap;
-        vector <int> a(n);
+        int prev = 0, ans = 0;
         for(int i = 0 ; i < n ; i++){
-        	cin >> a[i];
+            int curr;
+            cin >> curr;
+            ans = max(ans,curr - prev);
+            prev = curr;
         }
 
-        for(int i = n, j = 0; i < 2*n; i++,j++){
-        	a.push_back((a[j]*2) - (x - 1));
-        }
+        ans = max(ans,2*(x - prev));
 
-        for(int b:a){
-        	cout << b;
-        }
-
-        cout << endl;
+        cout << ans << endl;
     }
     return 0;
 }
