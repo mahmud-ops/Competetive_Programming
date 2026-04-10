@@ -1,1 +1,4 @@
 *.exe
+
+# Ignore compiled binaries (Linux executables have no extension)
+!*.*
